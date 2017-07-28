@@ -71,7 +71,7 @@ export default class ListRow extends Component {
     }].concat(style);
 
     //activeOpacity
-    if (!activeOpacity && activeOpacity !== 0) activeOpacity = onPress ? 0.2 : 1;
+    if (!activeOpacity && activeOpacity !== 0) activeOpacity = onPress ? 0.6 : 1;
 
     //contentStyle
     let contentStyle = {
@@ -223,26 +223,30 @@ export default class ListRow extends Component {
     let {title, detail, icon, accessory, topSeparator, bottomSeparator, swipeActions, contentStyle, onLayout, children, ...others} = this.props;
     let {swipeSts} = this.state;
     return (
-      <View onLayout={onLayout}>
-        {topSeparator}
-        {this.renderSwipeActionView()}
-        <SwipeTouchableOpacity
-          {...others}
-          swipeable={swipeActions instanceof Array && swipeActions.length > 0}
-          swipeWidth={this.state.swipeWidth}
-          onSwipeStsChange={swipeSts => this.setState({swipeSts})}
-          ref='containerView'
-        >
-          {icon}
-          <View style={contentStyle}>
-            {title}
-            {detail}
+        <View>
+            {topSeparator}
+          <View onLayout={onLayout} style={{paddingHorizontal: 10, backgroundColor: '#FFF'}}>
+
+              {this.renderSwipeActionView()}
+            <SwipeTouchableOpacity
+                {...others}
+                swipeable={swipeActions instanceof Array && swipeActions.length > 0}
+                swipeWidth={this.state.swipeWidth}
+                onSwipeStsChange={swipeSts => this.setState({swipeSts})}
+                ref='containerView'
+            >
+                {icon}
+              <View style={contentStyle}>
+                  {title}
+                  {detail}
+              </View>
+                {accessory}
+            </SwipeTouchableOpacity>
+
           </View>
-          {accessory}
-        </SwipeTouchableOpacity>
-        {bottomSeparator}
-        {children}
-      </View>
+            {bottomSeparator}
+            {children}
+        </View>
     );
   }
 

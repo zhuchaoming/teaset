@@ -60,7 +60,7 @@ export default class SelectExample extends NavigationPage {
           title='Size sm'
           detail={
             <Select
-              style={{width: 200}}
+              style={{width: 300}}
               size='sm'
               value={valueSM}
               items={this.items}

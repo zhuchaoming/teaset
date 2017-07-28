@@ -51,9 +51,9 @@ export default class Input extends TextInput {
     style = [{
       backgroundColor: Theme.inputColor,
       color: Theme.inputTextColor,
-      borderColor: Theme.inputBorderColor,
-      borderWidth: Theme.inputBorderWidth,
-      borderRadius: borderRadius,
+      // borderColor: Theme.inputBorderColor,
+      // borderWidth: Theme.inputBorderWidth,
+      // borderRadius: borderRadius,
       fontSize: fontSize,
       paddingVertical: paddingVertical,
       paddingHorizontal: paddingHorizontal,

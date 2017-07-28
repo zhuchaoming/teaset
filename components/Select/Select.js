@@ -8,6 +8,7 @@ import {StyleSheet, View, TouchableOpacity, Image, Text, ScrollView} from 'react
 import Theme from 'teaset/themes/Theme';
 import PullPicker from '../PullPicker/PullPicker';
 import PopoverPicker from '../PopoverPicker/PopoverPicker';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 export default class Select extends Component {
   
@@ -82,10 +83,9 @@ export default class Select extends Component {
     let {style, size, value, valueStyle, disabled, iconTintColor, placeholder, placeholderTextColor, ...others} = this.props;
 
     //style
-    let borderRadius, fontSize, paddingTop, paddingBottom, paddingLeft, paddingRight, height, iconSize;
+    let fontSize, paddingTop, paddingBottom, paddingLeft, paddingRight, height, iconSize;
     switch (size) {
       case 'lg':
-        borderRadius = Theme.selectBorderRadiusLG;
         fontSize = Theme.selectFontSizeLG;
         paddingTop = Theme.selectPaddingTopLG;
         paddingBottom = Theme.selectPaddingBottomLG;
@@ -95,7 +95,6 @@ export default class Select extends Component {
         iconSize = Theme.selectIconSizeLG;
         break;
       case 'sm':
-        borderRadius = Theme.selectBorderRadiusSM;
         fontSize = Theme.selectFontSizeSM;
         paddingTop = Theme.selectPaddingTopSM;
         paddingBottom = Theme.selectPaddingBottomSM;
@@ -105,7 +104,6 @@ export default class Select extends Component {
         iconSize = Theme.selectIconSizeSM;
         break;
       default:
-        borderRadius = Theme.selectBorderRadiusMD;
         fontSize = Theme.selectFontSizeMD;
         paddingTop = Theme.selectPaddingTopMD;
         paddingBottom = Theme.selectPaddingBottomMD;
@@ -116,9 +114,8 @@ export default class Select extends Component {
     }
     style = [{
       backgroundColor: Theme.selectColor,
-      borderColor: Theme.selectBorderColor,
-      borderWidth: Theme.selectBorderWidth,
-      borderRadius: borderRadius,
+      // borderColor: Theme.selectBorderColor,
+      // borderWidth: Theme.selectBorderWidth,
       paddingTop: paddingTop,
       paddingBottom: paddingBottom,
       paddingLeft: paddingLeft,
@@ -191,6 +188,7 @@ export default class Select extends Component {
 
     let {style, disabled, iconTintColor, editable, iconSize, valueElement, children, onPress, onLayout, ...others} = this.props;
     let ViewClass = disabled ? View : TouchableOpacity;
+
     return (
       <ViewClass
         style={style}
@@ -206,8 +204,9 @@ export default class Select extends Component {
         ref='selectView'
       >
         {valueElement}
-        <View style={{position: 'absolute', top: 0, bottom: 0, right: 0, justifyContent: 'center'}}>
-          <Image style={{width: iconSize, height: iconSize, tintColor: iconTintColor}} source={require('../../icons/select.png')} />
+        <View style={{position: 'absolute', top: 0, bottom: 0, right:0, justifyContent: 'center'}}>
+          {/*<Image style={{width: iconSize, height: iconSize, tintColor: iconTintColor}} source={require('../../icons/select.png')} />*/}
+          <EvilIcons name="chevron-down" size={38} color="#CCC"/>
         </View>
       </ViewClass>
     );
